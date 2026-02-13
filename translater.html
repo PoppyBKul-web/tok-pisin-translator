@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Translator</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+ .container { 
+      width: 100%;  
+      background: red; 
+      margin: auto;
+      }
+
+    input[type="text"] {
+        padding: 8px;
+        margin: 10px;
+    }
+ 
+    button:hover {
+        background-color: #0056b3;
+    }
+    p {
+        margin-top: 20px;
+    }
+footer { 
+      background: none; 
+      text-align: center; 
+      padding: 5px; 
+      }
+</style>
+</head>
+<body>
+<div class="container">
+<header> 
+
+<h1 align = "center">Pidgin Translator</h1>
+
+</header>
+<br><nav align = "center" >
+<a class ="button" href="home.html">Home</a> &nbsp;
+<a class ="button" href="audio.html">Audios</a>  &nbsp;
+<a class ="button" href="videos.html">Short Videos</a>  &nbsp;
+<a class ="button" href="translater.html">Translater</a>  &nbsp;
+<a class ="button" href="aboutus.html">About Us</a>  &nbsp;
+</nav></br>
+<h2 align = "center">Here is the translator, if you want to learn more about the language. </h2>
+  <main>
+        <form id="translationForm">
+            <label for="englishText">Enter English Text In The Box:</label>
+            <textarea id="englishText" rows="2" cols="40" required></textarea>
+            <input type="submit" class="button" value="Translate">
+        </form>
+        <div id="result" class="result" >In Tok Pisin:</div>
+    </main>
+ <script>
+        document.getElementById('translationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const englishText = document.getElementById('englishText').value;
+            const translatedText = translateToTokPisin(englishText);
+            document.getElementById('result').innerText = translatedText;
+        });
+
+        function translateToTokPisin(text) {
+            const dictionary = {
+             
+                "jump": "kalap",
+                "mine": "blomi",
+                "fine": "orait",
+                "deny": "nogat",
+                "throw": "tromoi",
+                "air": "win",
+                "stand": "sanap",
+                "woman": "meri",
+                "child": "pikinini",
+                "food": "kaikai",
+                "water": "wara",
+                "down": "tamblo",
+                "sit": "sindaun",
+                "find": "painim",
+                "run": "ron",
+                "what": "wanem",
+                "bath": "waswas",
+                "walk": "wokabaut",
+                "hear": "harim",
+                "learn": "lainim",
+                "rubbish": "pipia",
+                "hold": "holim",
+                "bye": "tata",
+                "buy": "baim",
+                "hurry": "hariap",
+                "get": "kisim",
+                "sale": "salim",
+                "lie": "giaman",
+                "good": "gudpela",
+                "love": "laikim",
+                "afraid": "poret",
+                "small": "liklik",
+                "big": "bigpla",
+                "father": "papa",
+                "mother": "mama",
+                "brother": "bata",
+                "sister": "susa",
+                "afternoon": "avinoon",
+                "me": "mi",
+                "you":"yu",
+                "i'am":"me",
+                "coming":"kam",
+                "hospital":"hausik",
+                "we":"yumi",
+                "catch":"kets",
+            };
+           
+
+            const words = text.toLowerCase().split(' ');
+            const translatedWords = words.map(word => dictionary[word] || word);
+            return translatedWords.join(' ');
+        }
+    </script>
+<footer> 
+      <p> copyright &copy; group8Website.com </p> 
+    </footer>
+</div>
+</body>
+</html>
